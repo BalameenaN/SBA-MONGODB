@@ -1,7 +1,8 @@
 import express from "express"
 import mongoose from "mongoose"
 import "dotenv/config"
-import product from "./models/product.js"
+import router from "./routes/productRoute.js"
+
 const app = express()
 const port =5000
 
@@ -10,7 +11,10 @@ mongoose
 .then(()=>console.log("MONGODB Connected successfully"))
 
 //route middleware
-app.use("/prod",product);
+app.use("/product",router);
+
+//body parser middleware
+app.use(express.json());
 
 app.get("/home", (req,res)=>{
     console.log("inside /home");
