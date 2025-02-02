@@ -3,12 +3,12 @@ import mongoose from "mongoose";
 //schema definition
 const productSchema = new mongoose.Schema({
     title: {
-        type:String,
+        type: String,
         required: true
     },
     description: String,
     price: {
-        type:Number,
+        type: Number,
         required: true,
         message: "{value} is not a valid type",
     },
@@ -16,7 +16,7 @@ const productSchema = new mongoose.Schema({
     rating: Number,
     brand: String,
     category: String
-});
+}, { timestamps: true });
 
-const productModel = mongoose.model("product",productSchema);
+const productModel = mongoose.model("product", productSchema);
 export default productModel;
