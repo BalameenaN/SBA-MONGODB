@@ -3,6 +3,7 @@ import mongoose from "mongoose"
 import "dotenv/config"
 import router from "./routes/productRoute.js"
 import userRouter from "./routes/userRoute.js"
+import cartRouter from "./routes/cartRoute.js"
 
 const app = express()
 const port = 5000
@@ -14,6 +15,7 @@ mongoose
 //route middleware
 app.use("/product", router);
 app.use("/user", userRouter);
+app.use("/cart",cartRouter);
 
 //body parser middleware
 app.use(express.json());
