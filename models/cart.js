@@ -1,11 +1,9 @@
 import mongoose from "mongoose"
 
 //schema for the nested array in cartschema
-const itemSchema = new mongoose.Schema({
-      
+const itemSchema = new mongoose.Schema({ 
     productId: Number,
     quantity: Number
-
 })
 
 const cartSchema = new mongoose.Schema({

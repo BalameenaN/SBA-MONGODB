@@ -30,7 +30,6 @@ router.post("/create", async (req, res) => {
     }
 });
 
-
 //reading the product using GET
 router
     .get("/details", async (req, res) => {
@@ -44,5 +43,24 @@ router
             res.json(e);
         }
     });
+
+//updating the certain field 
+router
+.put("/update/:id",async (req,res) =>{
+    console.log("inside /update");
+    const updatedProd =await productModel.findByIdAndUpdate(req.params.id,req.body);
+    console.log(updatedProd);
+    res.json("Product changes are updated");
+});
+
+//deleting certain document from the collection
+router
+.delete("/delete/:id", async (req,res)=>{
+    console.log("inside /prod/delete");
+    const deletedProd = await productModel.findByIdAndDelete(req.params.id);
+    console.log(deletedProd);
+    res.json("Product deleted");
+
+})
 
 export default router;
