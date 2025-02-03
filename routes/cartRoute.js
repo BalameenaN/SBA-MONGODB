@@ -40,4 +40,23 @@ router
     res.json(cart);
 });
 
+//updating the certain field 
+router
+.put("/update/:id",async (req,res) =>{
+    console.log("inside /update");
+    const updatedProd =await cartModel.findByIdAndUpdate(req.params.id,req.body);
+    console.log(updatedProd);
+    res.json("Changes to the cart are updated");
+});
+
+//deleting certain document from the collection
+router
+.delete("/delete/:id", async (req,res)=>{
+    console.log("inside /prod/delete");
+    const deletedProd = await cartModel.findByIdAndDelete(req.params.id);
+    console.log(deletedProd);
+    res.json("Cart item deleted");
+
+})
+
 export default router;

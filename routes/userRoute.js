@@ -38,6 +38,25 @@ router
             console.log(e);
             res.json(e);
         }
-    })
+    });
+
+    //updating the certain field 
+router
+.put("/update/:id",async (req,res) =>{
+    console.log("inside /update");
+    const updatedProd =await userModel.findByIdAndUpdate(req.params.id,req.body);
+    console.log(updatedProd);
+    res.json("user changes are updated");
+});
+
+//deleting certain document from the collection
+router
+.delete("/delete/:id", async (req,res)=>{
+    console.log("inside /prod/delete");
+    const deletedProd = await userModel.findByIdAndDelete(req.params.id);
+    console.log(deletedProd);
+    res.json("user deleted");
+
+})
 
 export default router;
