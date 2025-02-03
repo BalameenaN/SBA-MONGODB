@@ -57,6 +57,18 @@ router
         }
     });
 
+//route to display the indexes
+router
+ .get("/indexes",async (req,res)=>{
+       try{
+        const index = await productModel.listIndexes();
+        res.json(index);
+       }catch(e){
+        console.log(e);
+        res.json(e);
+       }
+ })
+
 //updating the certain field 
 router
 .put("/update/:id",async (req,res) =>{
