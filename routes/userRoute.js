@@ -40,6 +40,19 @@ router
         }
     });
 
+//displaying the user based on the id
+router
+    .get("/details/filter/:name", async (req, res) => {
+        console.log("inside user/filter");
+        try {
+            const user = await userModel.find({"name":req.params.name});
+            res.json(user);
+        } catch (e) {
+            console.log(e);
+            res.json(e);
+        }
+    });
+
     //updating the certain field 
 router
 .put("/update/:id",async (req,res) =>{

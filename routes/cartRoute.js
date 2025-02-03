@@ -15,16 +15,16 @@ router
         username:req.body.username,
         items:[
             {
-                productId: req.body.id,
+                productId: req.body.productId,
                 quantity: req.body.quantity
             }
         ],
-        totalCost: req.body.cost,
+        totalCost: req.body.totalCost,
         tax: req.body.tax,
-        shippingCost: req.body.shippingcost
+        shippingCost: req.body.shippingCost
     });
     console.log("cart detail added successfully");
-    await cart.use();
+    await cart.save();
     res.json(cart);
 }catch(e){
     console.log("inside catch");

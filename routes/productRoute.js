@@ -44,6 +44,19 @@ router
         }
     });
 
+//displaying the product based on the category
+router
+    .get("/details/filter/:name", async (req, res) => {
+        console.log("inside product/filter");
+        try {
+            const product = await productModel.find({"category":req.params.name});
+            res.json(product);
+        } catch (e) {
+            console.log(e);
+            res.json(e);
+        }
+    });
+
 //updating the certain field 
 router
 .put("/update/:id",async (req,res) =>{
