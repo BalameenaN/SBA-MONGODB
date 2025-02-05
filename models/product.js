@@ -18,6 +18,7 @@ const productSchema = new mongoose.Schema({
     category: String
 }, { timestamps: true });
 
+//included index for category field
 productSchema.index({category:1});
 
 const productModel = mongoose.model("product", productSchema);

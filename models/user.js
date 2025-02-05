@@ -19,6 +19,7 @@ const userschema = new mongoose.Schema({
 },
     { timestamps: true });
 
+    //included index for name field
     userschema.index({name:1});
 
 const userModel = mongoose.model("user", userschema);
