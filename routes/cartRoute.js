@@ -40,6 +40,15 @@ router
     res.json(cart);
 });
 
+//getting cart details using id
+router
+.get("/details/filter/:name",async(req,res)=>{
+    console.log("inside cart/details/filter");
+    const cart = await cartModel.find({"username":req.params.name});
+    res.json(cart);
+});
+
+
 //updating the certain field 
 router
 .put("/update/:id",async (req,res) =>{

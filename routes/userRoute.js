@@ -53,6 +53,19 @@ router
         }
     });
 
+    //displaying the list of indexes for this user model
+    router
+ .get("/indexes",async (req,res)=>{
+    console.log("inside user/index");
+       try{
+        const index = await userModel.listIndexes();
+        res.json(index);
+       }catch(e){
+        console.log(e);
+        res.json(e);
+       }
+ })
+
     //updating the certain field 
 router
 .put("/update/:id",async (req,res) =>{
